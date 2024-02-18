@@ -37,6 +37,8 @@ func relayHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Printf("Received relay request: Method=%s, URL=%s\n", req.Method, req.URL)
+
 	client := &http.Client{}
 	relayReq, err := http.NewRequest(req.Method, req.URL, bytes.NewBuffer(req.Body))
 	if err != nil {
